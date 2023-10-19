@@ -19,5 +19,18 @@ class ShowController extends Controller
         ];
         return View('table', $data);
     }
+    public function showData(){
+        //return 'Imię i Nazwisko:';
+         $data = [
+            'firstName' => 'Karolina',
+            'lastName' => 'Dorabiała',
+            'city' => 'Poznań',
+            'hobby' => ['siatkówka', 'żużel', 'fotografia']
+        ];
+        //return View('table', $data);
+        return View('data', $data);
+        //return View('data', ['data' => $data]);
+        
+    }
 }
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,17 @@ Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = '
   })->name('adres');
   
   Route::redirect('adres/{city?}/{street?}/{postalCode?}', '/address/{city?}/{street?}/{postalCode?}');
+
+  
+  Route::get('car', [CarController::class, 'showCarTable']);
+
+  Route::view('addUser', 'forms.adduserform');
+
+  Route::post('AddUser', [CarController::class,'AddUser']);
+
+
+
+
+
 
   

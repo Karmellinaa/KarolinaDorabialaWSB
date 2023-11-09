@@ -1,0 +1,15 @@
+table, 
+tr, 
+td, 
+th{
+    border: solid 1px grey;
+    padding: 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+.table tbody tr:nth-child(odd){
+    background-color: #00C0C9;
+}
+.table thead td{
+    font-weight: bold;
+}

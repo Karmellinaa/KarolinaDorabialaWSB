@@ -42,6 +42,7 @@ class ShowDbController extends Controller
         //return number_format(DB::table('users_test')->avg('weight'),'2');
 
         //return number_format(DB::table('users_test')->count('weight'));
+        
         return DB::table('users_test')
         ->select('users_test.firstName', 'users_test.lastName','city.cityName')
         ->join('city','city_id', 'city.id')

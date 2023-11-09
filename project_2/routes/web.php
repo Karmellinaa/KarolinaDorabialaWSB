@@ -34,6 +34,7 @@ Route::get('show_view', [\App\Http\Controllers\ShowController::class, 'showView'
 Route::get('show_data', [ShowController::class, 'showData']);
 Route::view('userform', 'forms.user_form');
 Route::get('UserFormController',[\App\Http\Controllers\UserFormController::class,'showForm']);
+Route::get('db', [\App\Http\Controllers\ShowDbController::class, 'showDbTable']);
 
 Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = '-', string $street = '-', int $postalCode = null){
     $postalCode = is_null($postalCode) ? 'brak kodu pocztowego' : substr($postalCode, 0, 2).'-'.substr($postalCode, 2, 3);
@@ -45,3 +46,5 @@ Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = '
   })->name('adres');
   
   Route::redirect('adres/{city?}/{street?}/{postalCode?}', '/address/{city?}/{street?}/{postalCode?}');
+
+  

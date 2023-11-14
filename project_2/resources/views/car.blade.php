@@ -30,6 +30,6 @@
         </table>
         {{ $car->links('pagination::bootstrap-5') }}
 
-        <a href="addUser">Dodaj użytkownika</a>
+        <a href="addUser">Dodaj samochód</a>
     </body>
     </html>

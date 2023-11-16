@@ -14,18 +14,18 @@ class BooksTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('books')->insert([
-            'name' => 'Laravel 10', 
-            'year' => '2023', 
-            'publication_place' => 'Poznan', 
-            'pages' => '700', 
+            'name' => 'Laravel 10',
+            'year' => '2023',
+            'publication_place' => 'Poznan',
+            'pages' => '700',
             'price' => '103.50'
         ]);
 
         DB::table('books')->insert([
-            'name' => 'Laravel 11', 
-            'year' => '2024', 
-            'publication_place' => 'Krakow', 
-            'pages' => '780', 
+            'name' => 'Laravel 11',
+            'year' => '2024',
+            'publication_place' => 'Krakow',
+            'pages' => '780',
             'price' => '158.99'
         ]);
     }

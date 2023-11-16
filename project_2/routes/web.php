@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CreateFakeData;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,37 +36,33 @@ Route::get('show', [ShowController::class, 'show']);
 Route::get('show_view', [\App\Http\Controllers\ShowController::class, 'showView']);
 Route::get('show_data', [ShowController::class, 'showData']);
 Route::view('userform', 'forms.user_form');
-Route::get('UserFormController',[\App\Http\Controllers\UserFormController::class,'showForm']);
+Route::get('UserFormController', [\App\Http\Controllers\UserFormController::class, 'showForm']);
 Route::get('db', [\App\Http\Controllers\ShowDbController::class, 'showDbTable']);
 
-Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = '-', string $street = '-', int $postalCode = null){
-    $postalCode = is_null($postalCode) ? 'brak kodu pocztowego' : substr($postalCode, 0, 2).'-'.substr($postalCode, 2, 3);
+Route::get('/address/{city?}/{street?}/{postalCode?}', function (string $city = '-', string $street = '-', int $postalCode = null) {
+    $postalCode = is_null($postalCode) ? 'brak kodu pocztowego' : substr($postalCode, 0, 2) . '-' . substr($postalCode, 2, 3);
     echo <<< SHOW
       Kod pocztowy: $postalCode<br>
       Miasto: $city<br>
       Ulica: $street<hr>
   SHOW;
-  })->name('adres');
-  
-  Route::redirect('adres/{city?}/{street?}/{postalCode?}', '/address/{city?}/{street?}/{postalCode?}');
+})->name('adres');
 
-  
-  Route::get('car', [CarController::class, 'showCarTable']);
+Route::redirect('adres/{city?}/{street?}/{postalCode?}', '/address/{city?}/{street?}/{postalCode?}');
 
-  Route::view('addUser', 'forms.adduserform');
 
-  Route::post('AddUser', [CarController::class,'AddUser']);
+Route::get('car', [CarController::class, 'showCarTable']);
 
-  Route::get('showdbtable',[UsersController::class, 'Showdbtable']);
+Route::view('addUser', 'forms.adduserform');
 
-  Route::get('show_add_userform', function(){
+Route::post('AddUser', [CarController::class, 'AddUser']);
+
+Route::get('showdbtable', [UsersController::class, 'Showdbtable']);
+
+Route::get('show_add_userform', function () {
     return view('forms.add_user_form');
-  });
+});
 
-  Route::post('UsersController', [UsersController::class, 'Adduser']);
+Route::post('UsersController', [UsersController::class, 'Adduser']);
 
-
-
-
-
-  
+Route::get('showFakeuser', [CreateFakeData::class, 'Show']);
